@@ -1,5 +1,5 @@
 "use strict";
-/*
+
 describe("pow", function() {
     
     describe("возводит x в степень 3", function() {
@@ -24,4 +24,4 @@ describe("pow", function() {
         assert.isNaN(pow(2, 1.5));
     });
     
-});*/
+});
