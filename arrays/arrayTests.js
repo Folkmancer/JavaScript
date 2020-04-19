@@ -141,8 +141,8 @@ describe("mapToNames", function () {
         let john = { name: "John", age: 25 };
         let pete = { name: "Pete", age: 30 };
         let mary = { name: "Mary", age: 28 };
-
-        let users = [ john, pete, mary ];
+        let users = [john, pete, mary];
+        
         let names = mapToNames(users);
 
         assert.equal(users.length, names.length);
@@ -155,8 +155,8 @@ describe("mapToObjects", function () {
         let john = { name: "John", surname: "Smith", id: 1 };
         let pete = { name: "Pete", surname: "Hunt", id: 2 };
         let mary = { name: "Mary", surname: "Key", id: 3 };
+        let users = [john, pete, mary];
 
-        let users = [ john, pete, mary ];
         let usersMapped = mapToObjects(users);
 
         assert.equal(users.length, usersMapped.length);
@@ -170,8 +170,7 @@ describe("sortByAge", function () {
         let john = { name: "John", age: 25 };
         let pete = { name: "Pete", age: 30 };
         let mary = { name: "Mary", age: 28 };
-
-        let users = [ pete, john, mary ];
+        let users = [pete, john, mary];
 
         sortByAge(users);
 
@@ -186,8 +185,7 @@ describe("getAverageAge", function () {
         let john = { name: "John", age: 25 };
         let pete = { name: "Pete", age: 30 };
         let mary = { name: "Mary", age: 29 };
-
-        let users = [ john, pete, mary ];
+        let users = [john, pete, mary];
 
         assert.equal(getAverageAge(users), 28);
     });
@@ -196,8 +194,7 @@ describe("getAverageAge", function () {
         let john = { name: "John", age: 13 };
         let pete = { name: "Pete", age: 6 };
         let mary = { name: "Mary", age: 27 };
-
-        let users = [ john, pete, mary ];
+        let users = [john, pete, mary];
         
         assert.equal(getAverageAge(users), 15);
     });
@@ -217,12 +214,12 @@ describe("unique", function () {
 describe("groupById", function () {
     it("id элементов массива должны совпасть с id объекта полученными по ключам", function () {
         let users = [
-            {id: 'john', name: "John Smith", age: 20},
-            {id: 'ann', name: "Ann Smith", age: 24},
-            {id: 'pete', name: "Pete Peterson", age: 31},
-          ];
+            { id: "john", name: "John Smith", age: 20 },
+            { id: "ann", name: "Ann Smith", age: 24 },
+            { id: "pete", name: "Pete Peterson", age: 31 },
+        ];
           
-          let usersById = groupById(users);
+        let usersById = groupById(users);
 
         assert.equal(usersById.john.id, users[0].id);
         assert.equal(usersById.ann.id, users[1].id);

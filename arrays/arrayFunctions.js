@@ -78,9 +78,11 @@ function Calculator() {
     this.methods = {
         "+": (a, b) => a + b
     };
+    
     this.addMethod = function (name, func) {
         this.methods[name] = func;
     };
+    
     this.calculate = function (str) {
         let data = str.split(" ");
         let a = +data[0];
