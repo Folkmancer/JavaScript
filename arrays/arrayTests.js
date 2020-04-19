@@ -180,3 +180,52 @@ describe("sortByAge", function () {
         assert.equal(users[2].name, "Pete");
     });
 });
+
+describe("getAverageAge", function () {
+    it("Для 25, 30 и 29 лет средний возраст 28 лет", function () {
+        let john = { name: "John", age: 25 };
+        let pete = { name: "Pete", age: 30 };
+        let mary = { name: "Mary", age: 29 };
+
+        let users = [ john, pete, mary ];
+
+        assert.equal(getAverageAge(users), 28);
+    });
+
+    it("Для 13, 6 и 27 лет средний возраст 15 лет", function () {
+        let john = { name: "John", age: 13 };
+        let pete = { name: "Pete", age: 6 };
+        let mary = { name: "Mary", age: 27 };
+
+        let users = [ john, pete, mary ];
+        
+        assert.equal(getAverageAge(users), 15);
+    });
+});
+
+describe("unique", function () {
+    it("Для массива ['Hare', 'Krishna', 'Hare', 'Krishna', " +
+        "'Krishna', 'Krishna', 'Hare', 'Hare', ':-O'] " +
+        "уникальными записями будут ['Hare', 'Krishna', ':-O']", function () {
+        let strings = ["Hare", "Krishna", "Hare", "Krishna",
+            "Krishna", "Krishna", "Hare", "Hare", ":-O"];
+
+        assert.equal(unique(strings), "Hare,Krishna,:-O");
+    });
+});
+
+describe("groupById", function () {
+    it("id элементов массива должны совпасть с id объекта полученными по ключам", function () {
+        let users = [
+            {id: 'john', name: "John Smith", age: 20},
+            {id: 'ann', name: "Ann Smith", age: 24},
+            {id: 'pete', name: "Pete Peterson", age: 31},
+          ];
+          
+          let usersById = groupById(users);
+
+        assert.equal(usersById.john.id, users[0].id);
+        assert.equal(usersById.ann.id, users[1].id);
+        assert.equal(usersById.pete.id, users[2].id);
+    });
+});

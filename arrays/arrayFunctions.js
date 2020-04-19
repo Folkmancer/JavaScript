@@ -57,7 +57,7 @@ function filterRange(array, a, b) {
 
 function filterRangeInPlace(array, a, b) {
     for (let i = 0; i < array.length; i++) {
-        let item = arr[i];
+        let item = array[i];
 
         if (item < a || item > b) {
             array.splice(i, 1);
@@ -112,4 +112,27 @@ function shuffle(array) {
         let j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
+}
+
+function getAverageAge(array) {
+    return Math.round(array.reduce((sum, currentItem) => sum + currentItem.age, 0) / array.length);
+}
+
+function unique(array) {
+    let uniqueArray = [];
+    
+    for (let item of array) {
+        if (!uniqueArray.includes(item)) {
+            uniqueArray.push(item);
+        }
+    }    
+
+    return uniqueArray;
+}
+
+function groupById(array) {
+    return array.reduce((users, currentUser) => { 
+        users[currentUser.id] = currentUser;
+        return users;
+    }, {});
 }
